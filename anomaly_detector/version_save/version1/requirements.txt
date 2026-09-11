@@ -1,0 +1,35 @@
+# ============================================================
+# Anomaly Detector - Python Dependencies
+# ============================================================
+# Install with: pip install -r requirements.txt
+#
+# NOTE: This file lists ALL Python packages needed by the
+# anomaly_detector node. Install into a conda/venv environment
+# with Python 3.10.
+# ============================================================
+
+# ROS2 (install via apt, listed here for reference only)
+# rclpy
+
+# --- Core ---
+numpy==1.23.4
+opencv-python>=4.8.0
+Pillow>=9.0.0
+
+# --- Fire & Smoke Detection (ONNX Runtime) ---
+onnxruntime>=1.16.0
+
+# --- Safety Helmet & Smoking Detection (YOLO) ---
+ultralytics>=8.1.0
+
+# --- License Plate Detection ---
+# hyperlpr3 is installed separately, see README
+# hyperlpr3
+
+# --- Face Detection & Recognition ---
+# insightface is installed separately, see README
+# insightface
+
+# --- ROS2 Python packages (install via apt) ---
+# std_msgs
+# rclpy

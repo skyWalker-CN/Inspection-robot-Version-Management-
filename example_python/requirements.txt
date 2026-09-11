@@ -1,0 +1,29 @@
+# 核心依赖
+torch>=2.0.0
+torchvision>=0.15.0
+ultralytics>=8.0.0
+opencv-python>=4.5.0
+numpy>=1.21.0
+pillow>=8.0.0
+
+# OCR相关
+paddlepaddle>=3.0.0
+paddleocr>=3.0.0
+
+# 人脸识别
+dlib>=19.22.0
+
+# ROS2相关
+rclpy
+std_msgs
+cv_bridge
+sensor_msgs
+
+# 其他工具
+pathlib
+queue
+threading
+datetime
+json
+base64
+argparse

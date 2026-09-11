@@ -1,0 +1,4 @@
+[2026-06-05 09:19:52.922][INF] COM_Logout[0][0]
+[2026-06-05 09:19:52.923][DBG] CUserMgr::UnRegisterHeartProxy[0]
+[2026-06-05 09:19:52.923][INF] Private connect 192.168.2.64:8000 sock=136 this=0xba63e5c4 cmd=0x10100 port=43924
+[2026-06-05 09:19:52.925][INF] CTransUnitMgr::UnloadTransUnitLib

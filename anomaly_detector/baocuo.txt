@@ -1,0 +1,96 @@
+jetson@ubuntu:~/ros2_ws$ ros2 run anomaly_detector anomaly_detector
+2026-07-14 15:05:26.966705808 [W:onnxruntime:Default, device_discovery.cc:164 DiscoverDevicesForPlatform] GPU device discovery failed: device_discovery.cc:89 ReadFileContents Failed to open file: "/sys/class/drm/card1/device/vendor"
+/home/jetson/miniforge3/envs/anomaly_detect/lib/python3.10/site-packages/matplotlib/projections/__init__.py:63: UserWarning: Unable to import Axes3D. This may be due to multiple versions of Matplotlib being installed (e.g. as a system package and as a pip package). As a result, the 3D projection is not available.
+  warnings.warn("Unable to import Axes3D. This may be due to multiple versions of "
+[Path] Using source workspace: /home/jetson/ros2_ws/src/anomaly_detector/models
+[Path] Using source workspace: /home/jetson/ros2_ws/src/anomaly_detector/face_database
+[INFO] [1784012731.439344583] [anomaly_detector_node]: ============================================================
+[INFO] [1784012731.440060444] [anomaly_detector_node]:   Optimized Anomaly Detector Node Starting
+[INFO] [1784012731.440681038] [anomaly_detector_node]:   Device: cuda, FP16: True
+[INFO] [1784012731.441263518] [anomaly_detector_node]: ============================================================
+Loading /home/jetson/ros2_ws/src/anomaly_detector/models/fire_smoke_best.engine for TensorRT inference...
+[07/14/2026-15:05:31] [TRT] [I] Loaded engine size: 8 MiB
+[07/14/2026-15:05:31] [TRT] [W] Using an engine plan file across different models of devices is not recommended and is likely to affect performance or even cause errors.
+[07/14/2026-15:05:32] [TRT] [I] [MemUsageChange] TensorRT-managed allocation in IExecutionContext creation: CPU +0, GPU +9, now: CPU 0, GPU 14 (MiB)
+[FireSmoke] WARNING: unknown class '------------------------------' (id=0), using 'smoke' as fallback
+[FireSmoke] WARNING: unknown class 'fire-smoke-detection - v2 v2' (id=1), using 'smoke' as fallback
+[FireSmoke] YOLO classes: {0: '------------------------------', 1: 'fire-smoke-detection - v2 v2'} -> remap [1, 1]
+[FireSmoke] Backend: YOLO TensorRT engine (fire_smoke_best.engine)
+Loading /home/jetson/ros2_ws/src/anomaly_detector/models/fire_smoke_best.engine for TensorRT inference...
+[07/14/2026-15:05:32] [TRT] [I] Loaded engine size: 8 MiB
+[07/14/2026-15:05:32] [TRT] [W] Using an engine plan file across different models of devices is not recommended and is likely to affect performance or even cause errors.
+[07/14/2026-15:05:32] [TRT] [I] [MemUsageChange] TensorRT-managed allocation in IExecutionContext creation: CPU +0, GPU +9, now: CPU 0, GPU 14 (MiB)
+[INFO] [1784012735.346486789] [anomaly_detector_node]: [OK] Fire & Smoke detector loaded
+[YOLO] Loaded TensorRT engine: helmet_best.engine
+[YOLO] Loaded TensorRT engine: smoking_best.engine
+[INFO] [1784012735.348571201] [anomaly_detector_node]: [OK] Safety (helmet+smoking) detectors loaded
+[INFO] [1784012735.570562024] [anomaly_detector_node]: [OK] Plate detector loaded
+[WARN] [1784012735.571300382] [anomaly_detector_node]: CUDAExecutionProvider not available for InsightFace, falling back to CPU — expect 10-50x slowdown
+Applied providers: ['CPUExecutionProvider'], with options: {'CPUExecutionProvider': {}}
+find model: /home/jetson/.insightface/models/buffalo_s/1k3d68.onnx landmark_3d_68 ['None', 3, 192, 192] 0.0 1.0
+Applied providers: ['CPUExecutionProvider'], with options: {'CPUExecutionProvider': {}}
+find model: /home/jetson/.insightface/models/buffalo_s/2d106det.onnx landmark_2d_106 ['None', 3, 192, 192] 0.0 1.0
+Applied providers: ['CPUExecutionProvider'], with options: {'CPUExecutionProvider': {}}
+find model: /home/jetson/.insightface/models/buffalo_s/det_500m.onnx detection [1, 3, '?', '?'] 127.5 128.0
+Applied providers: ['CPUExecutionProvider'], with options: {'CPUExecutionProvider': {}}
+find model: /home/jetson/.insightface/models/buffalo_s/genderage.onnx genderage ['None', 3, 96, 96] 0.0 1.0
+Applied providers: ['CPUExecutionProvider'], with options: {'CPUExecutionProvider': {}}
+find model: /home/jetson/.insightface/models/buffalo_s/w600k_mbf.onnx recognition ['None', 3, 112, 112] 127.5 127.5
+set det-size: (320, 320)
+[INFO] [1784012736.222995067] [anomaly_detector_node]: [OK] Face detector loaded (pack=buffalo_s, det_size=320, providers=['CPUExecutionProvider'])
+[INFO] [1784012736.235995761] [anomaly_detector_node]:   Face loaded: shuo
+[INFO] [1784012736.237007054] [anomaly_detector_node]:   Face database: 1 entries, matrix shape: (1, 512)
+[INFO] [1784012736.454105289] [anomaly_detector_node]: Camera opened (ID=0, 640x480)
+[INFO] [1784012737.281657057] [anomaly_detector_node]: Anomaly Detector Node ready (async pipeline)
+Loading /home/jetson/ros2_ws/src/anomaly_detector/models/helmet_best.engine for TensorRT inference...
+[07/14/2026-15:05:37] [TRT] [I] The logger passed into createInferRuntime differs from one already provided for an existing builder, runtime, or refitter. Uses of the global logger, returned by nvinfer1::getLogger(), will return the existing value.
+[07/14/2026-15:05:37] [TRT] [I] Loaded engine size: 8 MiB
+[07/14/2026-15:05:37] [TRT] [W] Using an engine plan file across different models of devices is not recommended and is likely to affect performance or even cause errors.
+[07/14/2026-15:05:37] [TRT] [I] [MemUsageChange] TensorRT-managed allocation in IExecutionContext creation: CPU +1, GPU +9, now: CPU 1, GPU 29 (MiB)
+Loading /home/jetson/ros2_ws/src/anomaly_detector/models/smoking_best.engine for TensorRT inference...
+[07/14/2026-15:05:37] [TRT] [I] The logger passed into createInferRuntime differs from one already provided for an existing builder, runtime, or refitter. Uses of the global logger, returned by nvinfer1::getLogger(), will return the existing value.
+[07/14/2026-15:05:38] [TRT] [I] Loaded engine size: 52 MiB
+[07/14/2026-15:05:38] [TRT] [W] Using an engine plan file across different models of devices is not recommended and is likely to affect performance or even cause errors.
+[07/14/2026-15:05:38] [TRT] [I] [MemUsageChange] TensorRT-managed allocation in IExecutionContext creation: CPU +0, GPU +29, now: CPU 1, GPU 107 (MiB)
+/home/jetson/miniforge3/envs/anomaly_detect/lib/python3.10/site-packages/skimage/transform/_geometric.py:6: UserWarning: A NumPy version >=1.23.5 and <2.5.0 is required for this version of SciPy (detected version 1.23.4)
+  from scipy import spatial
+/home/jetson/miniforge3/envs/anomaly_detect/lib/python3.10/site-packages/insightface/utils/transform.py:68: FutureWarning: `rcond` parameter will change to the default of machine precision times ``max(M, N)`` where M and N are the input matrix dimensions.
+To use the future default and silence this warning we advise to pass `rcond=None`, to keep using the old, explicitly pass `rcond=-1`.
+  P = np.linalg.lstsq(X_homo, Y)[0].T # Affine matrix. 3 x 4
+[INFO] [1784012742.285249623] [anomaly_detector_node]: Display: 26.4 FPS, Detect: 2.4 FPS, Results: 2
+[INFO] [1784012747.319293357] [anomaly_detector_node]: Display: 30.0 FPS, Detect: 3.4 FPS, Results: 2
+[INFO] [1784012752.351934642] [anomaly_detector_node]: Display: 30.0 FPS, Detect: 3.4 FPS, Results: 3
+[INFO] [1784012757.354301992] [anomaly_detector_node]: Display: 30.0 FPS, Detect: 3.4 FPS, Results: 4
+/home/jetson/miniforge3/envs/anomaly_detect/lib/python3.10/site-packages/numpy/core/fromnumeric.py:3432: RuntimeWarning: Mean of empty slice.
+  return _methods._mean(a, axis=axis, dtype=dtype,
+/home/jetson/miniforge3/envs/anomaly_detect/lib/python3.10/site-packages/numpy/core/_methods.py:190: RuntimeWarning: invalid value encountered in double_scalars
+  ret = ret.dtype.type(ret / rcount)
+[INFO] [1784012762.386016255] [anomaly_detector_node]: Display: 30.0 FPS, Detect: 5.4 FPS, Results: 1
+[INFO] [1784012767.386094337] [anomaly_detector_node]: Display: 30.0 FPS, Detect: 7.2 FPS, Results: 1
+[INFO] [1784012772.419490775] [anomaly_detector_node]: Display: 30.0 FPS, Detect: 7.9 FPS, Results: 1
+[INFO] [1784012777.420250170] [anomaly_detector_node]: Display: 30.0 FPS, Detect: 7.0 FPS, Results: 1
+[INFO] [1784012782.423271349] [anomaly_detector_node]: Display: 30.0 FPS, Detect: 7.4 FPS, Results: 1
+[INFO] [1784012787.422799492] [anomaly_detector_node]: Display: 30.0 FPS, Detect: 7.8 FPS, Results: 1
+[INFO] [1784012792.431618324] [anomaly_detector_node]: Display: 30.0 FPS, Detect: 8.2 FPS, Results: 1
+[INFO] [1784012797.453521619] [anomaly_detector_node]: Display: 30.1 FPS, Detect: 7.8 FPS, Results: 2
+[INFO] [1784012802.457062171] [anomaly_detector_node]: Display: 30.0 FPS, Detect: 7.8 FPS, Results: 2
+[INFO] [1784012807.487789382] [anomaly_detector_node]: Display: 30.0 FPS, Detect: 8.2 FPS, Results: 1
+[INFO] [1784012812.496142950] [anomaly_detector_node]: Display: 29.9 FPS, Detect: 7.4 FPS, Results: 1
+[INFO] [1784012817.519425867] [anomaly_detector_node]: Display: 30.1 FPS, Detect: 7.6 FPS, Results: 2
+[INFO] [1784012822.553033456] [anomaly_detector_node]: Display: 30.0 FPS, Detect: 8.1 FPS, Results: 1
+[INFO] [1784012827.560217654] [anomaly_detector_node]: Display: 30.0 FPS, Detect: 8.6 FPS, Results: 1
+[INFO] [1784012832.585784004] [anomaly_detector_node]: Display: 30.0 FPS, Detect: 8.4 FPS, Results: 1
+[INFO] [1784012837.619878526] [anomaly_detector_node]: Display: 30.0 FPS, Detect: 7.0 FPS, Results: 0
+[INFO] [1784012842.653801515] [anomaly_detector_node]: Display: 30.0 FPS, Detect: 6.8 FPS, Results: 0
+[INFO] [1784012847.685431311] [anomaly_detector_node]: Display: 30.0 FPS, Detect: 6.8 FPS, Results: 1
+[INFO] [1784012852.693801391] [anomaly_detector_node]: Display: 30.0 FPS, Detect: 6.0 FPS, Results: 1
+[INFO] [1784012857.720198349] [anomaly_detector_node]: Display: 30.0 FPS, Detect: 7.2 FPS, Results: 1
+[INFO] [1784012862.721858590] [anomaly_detector_node]: Display: 30.0 FPS, Detect: 7.4 FPS, Results: 1
+[INFO] [1784012867.751733265] [anomaly_detector_node]: Display: 30.0 FPS, Detect: 6.0 FPS, Results: 1
+[INFO] [1784012872.752409782] [anomaly_detector_node]: Display: 30.0 FPS, Detect: 6.2 FPS, Results: 1
+[INFO] [1784012877.785614873] [anomaly_detector_node]: Display: 30.0 FPS, Detect: 3.6 FPS, Results: 2
+[INFO] [1784012882.786534871] [anomaly_detector_node]: Display: 30.0 FPS, Detect: 3.4 FPS, Results: 2
+^C[INFO] [1784012885.269717620] [anomaly_detector_node]: Shutting down AnomalyDetectorNode...
+Failed to publish log message to rosout: publisher's context is invalid, at ./src/rcl/publisher.c:389
+[INFO] [1784012885.304276339] [anomaly_detector_node]: Waiting for detect thread to finish...
+Failed to publish log message to rosout: publisher's context is invalid, at ./src/rcl/publisher.c:389
